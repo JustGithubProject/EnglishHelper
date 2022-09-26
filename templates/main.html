@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title%}Главная страница{%endblock%}
+{% block body%}
+<div class="content">
+    <h1>Ваши заметки по английскому</h1>
+    <hr>
+    {%for i in english%}
+        <h3>{{i.name}}</h3>
+        <p>{{i.text}}</p>
+    <form action="delete/{{i.id}}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Удалить">
+    </form>
+    <hr>
+    {%endfor%}
+    <div>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-name">
+            {{form.name}}
+        </div>
+        <div class="form-text">
+            {{form.text}}
+        </div>
+        <button type="submit" class="button-click">Отправить</button>
+    </form>
+     </div>
+</div>
+
+{%endblock%}
