@@ -3,6 +3,7 @@ from .models import English
 
 
 class FormEnglish(ModelForm):
+    """Form for adding something about english"""
     class Meta:
         model = English
         fields = ['name', 'text']
